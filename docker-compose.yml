@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+  localstack:
+    image: localstack/localstack:1.0.0
+    environment:
+      - SERVICES=sqs,lambda,logs,ssm
+      - EDGE_PORT=4566
+      - LAMBDA_EXECUTOR=docker-reuse
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LAMBDA_REMOVE_CONTAINERS=true
+      - LAMBDA_EXECUTOR=docker
+      - LAMBDA_REMOTE_DOCKER=true
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    ports:
+      - '4566:4566'
+    networks:
+      - localnw
+
+networks:
+  localnw:
