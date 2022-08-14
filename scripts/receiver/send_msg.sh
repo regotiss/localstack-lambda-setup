@@ -4,6 +4,8 @@ LAMBDA_NAME="receiver"
 
 laws="aws --endpoint-url=http://localhost:4566"
 export AWS_DEFAULT_REGION=us-east-1
+export AWS_ACCESS_KEY_ID="dev"
+export AWS_SECRET_ACCESS_KEY="dev"
 
 echo "Sending message to ${LAMBDA_NAME} queue"
 $laws sqs send-message \

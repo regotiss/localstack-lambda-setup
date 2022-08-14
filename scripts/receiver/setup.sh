@@ -2,6 +2,8 @@
 
 LAMBDA_NAME="receiver"
 export AWS_DEFAULT_REGION=us-east-1
+export AWS_ACCESS_KEY_ID="dev"
+export AWS_SECRET_ACCESS_KEY="dev"
 
 echo "Building ${LAMBDA_NAME} executable"
 GOOS=linux go build ./cmd/${LAMBDA_NAME}/main.go
